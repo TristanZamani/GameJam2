@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class StatBlock : MonoBehaviour
 {
     [SerializeField] private int hitPoints = 10;
@@ -12,10 +12,16 @@ public class StatBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
     public void takeDamage(int damage)
     {
         hitPoints -= damage;
