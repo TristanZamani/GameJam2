@@ -30,5 +30,16 @@ public class StatBlock : MonoBehaviour
             Object.Destroy(gameObject);
         }
     }
-        
+
+}
+
+public class BodyguardCollision : MonoBehaviour
+{
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
