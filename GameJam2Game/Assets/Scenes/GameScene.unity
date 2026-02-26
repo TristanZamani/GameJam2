@@ -12932,6 +12932,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813109628947454784, guid: 0538671946738914392ed2dd1853c58c, type: 3}
+      propertyPath: objectToSpawn
+      value: 
+      objectReference: {fileID: 8327156121111331959, guid: c61d2e2c7f8c25e4aa58ae0f66657e0d, type: 3}
     - target: {fileID: 6264858512712301257, guid: 0538671946738914392ed2dd1853c58c, type: 3}
       propertyPath: player
       value: 

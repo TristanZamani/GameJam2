@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 public class StatBlock : MonoBehaviour
 {
     [SerializeField] private int hitPoints = 10;
+    [SerializeField] private GameObject objectToSpawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,11 +23,27 @@ public class StatBlock : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
+    private void SpawnObject()
+    {
+        if(objectToSpawn != null)
+    {
+            // Spawn the VFX
+            GameObject vfx = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+
+            // Make it face the player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null){
+                vfx.transform.LookAt(player.transform);
+            
+        }
+    }
+}
     public void takeDamage(int damage)
     {
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
+            SpawnObject();
             Object.Destroy(gameObject);
         }
     }
